@@ -18,31 +18,5 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class VentaService {
 
-    private final VentaRepository ventaRepository;
-    private final DetalleVentaRepository detalleVentaRepository;
-    private final VentaMapper ventaMapper;
 
-    public List<VentaResponse> obtenerTodasLasVentas() {
-
-        List<VentaEntity> ventasEntity = ventaRepository.findAll();
-
-        List<DetalleVentaEntity> detalleVentasEntity = detalleVentaRepository.findByVentaIn(ventasEntity);
-
-        Map<Long, List<DetalleVentaEntity>> detallesPorVentaId = detalleVentasEntity.stream()
-                .collect(Collectors.groupingBy(detalle -> detalle.getVenta().getId()));
-
-        List<VentaResponse> ventaResponse = new ArrayList<>();
-
-        for (VentaEntity entity : ventasEntity) {
-            List<DetalleVentaEntity> detalles = detallesPorVentaId.getOrDefault(
-                    entity.getId(), Collections.emptyList()
-            );
-
-            VentaResponse response = ventaMapper.toVentaResponse(entity, detalles);
-
-            ventaResponse.add(response);
-        }
-
-        return ventaResponse;
-    }
 }
