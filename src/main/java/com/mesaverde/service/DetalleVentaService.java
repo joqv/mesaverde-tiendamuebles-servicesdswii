@@ -11,4 +11,5 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DetalleVentaService {
 
+    private final DetalleVentaRepository detalleVentaRepository;
 }

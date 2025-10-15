@@ -10,4 +10,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class DetalleVentaController {
 
+    private final DetalleVentaService detalleVentaService;
 }

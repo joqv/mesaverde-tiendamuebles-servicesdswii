@@ -14,4 +14,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VentaController {
 
+    private final VentaService ventaService;
+
+    @GetMapping
+    public List<VentaResponse> listaVentaDetalle() {
+        return ventaService.obtenerTodasLasVentas();
+    }
 }
