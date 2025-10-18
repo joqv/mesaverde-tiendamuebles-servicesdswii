@@ -12,6 +12,7 @@ import java.util.List;
 public interface VentaMapper {
 
     @Mapping(target = "detallesVentas", source = "detalles")
+    @Mapping(target = "nombreUsuario", source = "entity.usuario.username")
     VentaResponse toVentaResponse(VentaEntity entity, List<DetalleVentaEntity> detalles);
 
     //List<VentaResponse> toVentaResponseList(List<VentaEntity> ventas);
