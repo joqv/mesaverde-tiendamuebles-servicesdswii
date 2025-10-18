@@ -4,8 +4,8 @@ import com.mesaverde.entity.ProductoEntity;
 import com.mesaverde.entity.VentaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.mesaverde.entity.Producto;
-import com.mesaverde.entity.Venta;
+import com.mesaverde.entity.ProductoEntity;
+import com.mesaverde.entity.VentaEntity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -22,13 +22,13 @@ public interface VentaRepository extends JpaRepository<VentaEntity, Long> {
     List<ProductoEntity> todosProductos();
 
     @Procedure(procedureName = "sp_descontar_producto")
-    void descontarProducto(Integer p_id_producto, Integer p_cantidad, BigDecimal p_precio_unitario, String p_usuario);
+    void descontarProducto(long p_id_producto, Integer p_cantidad, BigDecimal p_precio_unitario, String p_usuario);
 
     @Query(value = "CALL sp_registrar_venta(:usuarioId, :total)", nativeQuery = true)
-    Integer registrarVenta(@Param("usuarioId") Integer usuarioId, @Param("total") BigDecimal total);
+    Integer registrarVenta(@Param("usuarioId") Long usuarioId, @Param("total") BigDecimal total);
 
     @Procedure(procedureName = "sp_registrar_detalle_venta")
-    void registrarDetalleVenta(Integer ventaId, Integer productoId, Integer cantidad, BigDecimal precioUnitario);
+    void registrarDetalleVenta(long ventaId, long productoId, Integer cantidad, BigDecimal precioUnitario);
 }
 
 
