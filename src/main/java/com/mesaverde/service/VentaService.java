@@ -40,7 +40,7 @@ public class VentaService {
                         user.getId(),
                         user.getUsername(),
                         user.getRole(),
-                        user.getCliente() != null ? user.getCliente().getId() : null
+                        user.getCliente() != null ? user.getCliente().getId() : 1L
                 ))
                 .collect(Collectors.toList());
 
@@ -60,7 +60,7 @@ public class VentaService {
     public void procesarVenta(VentaEntity venta, List<DetalleVentaEntity> detalles) {
         // 1. Registrar la venta
         long ventaId = ventaRepository.registrarVenta(
-                venta.getUsuario() != null ? venta.getUsuario().getId() : null,
+                venta.getUsuario() != null ? venta.getUsuario().getId() : 1L,
                 venta.getTotal()
         );
         venta.setId(ventaId);
