@@ -6,11 +6,27 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
+import com.mesaverde.entity.UserEntity;
+import lombok.Builder;
+import lombok.Data;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
+
 @Builder
+@Data
 public class VentaResponse {
 
-    private int id;
+    //private String nombreCliente;
+    private String nombreUsuario;
     private LocalDateTime fecha;
+    private BigDecimal total;
+    private List<UserResponse> clientes;
+
     private List<DetalleVentaSimple> detallesVentas;
+
 }
+
+

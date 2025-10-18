@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class DetalleVentaEntity {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
