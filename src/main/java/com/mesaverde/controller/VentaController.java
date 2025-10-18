@@ -46,6 +46,11 @@ public class VentaController {
 
     private final VentaService ventaService;
 
+    @GetMapping
+    public List<VentaResponse> listaVentaDetalle() {
+        return ventaService.obtenerTodasLasVentas();
+    }
+
     @GetMapping("/{id}")
     public VentaResponse obtenerVenta(@PathVariable Integer id) {
 

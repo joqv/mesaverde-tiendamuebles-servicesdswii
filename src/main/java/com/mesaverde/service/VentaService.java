@@ -4,6 +4,7 @@ import com.mesaverde.dto.response.VentaResponse;
 import com.mesaverde.entity.DetalleVentaEntity;
 import com.mesaverde.entity.ProductoEntity;
 import com.mesaverde.entity.VentaEntity;
+import com.mesaverde.mapper.VentaMapper;
 import com.mesaverde.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,8 @@ public class VentaService {
 
     private final VentaRepository ventaRepository;
     private final UserDetailsRepository userDetailsRepository;
+    private final DetalleVentaRepository detalleVentaRepository;
+    private final VentaMapper ventaMapper;
 
     public List<ProductoEntity> todosProductos(){
         return ventaRepository.todosProductos();
@@ -90,6 +93,30 @@ public class VentaService {
                     detalle.getPrecioUnitario()
             );
         }
+    }
+
+    public List<VentaResponse> obtenerTodasLasVentas() {
+
+        List<VentaEntity> ventasEntity = ventaRepository.findAll();
+
+        List<DetalleVentaEntity> detalleVentasEntity = detalleVentaRepository.findByVentaIn(ventasEntity);
+
+        Map<Long, List<DetalleVentaEntity>> detallesPorVentaId = detalleVentasEntity.stream()
+                .collect(Collectors.groupingBy(detalle -> detalle.getVenta().getId()));
+
+        List<VentaResponse> ventaResponse = new ArrayList<>();
+
+        for (VentaEntity entity : ventasEntity) {
+            List<DetalleVentaEntity> detalles = detallesPorVentaId.getOrDefault(
+                    entity.getId(), Collections.emptyList()
+            );
+
+            VentaResponse response = ventaMapper.toVentaResponse(entity, detalles);
+
+            ventaResponse.add(response);
+        }
+
+        return ventaResponse;
     }
 
 }
