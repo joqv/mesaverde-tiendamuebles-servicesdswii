@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.6</version> <relativePath /> </parent>
-	<groupId>com.mesaverde</</groupId>
+	<groupId>com.mesaverde</groupId>
 	<artifactId>messaverde-tiendamuebles-servicesdswii</artifactId> <version>0.0.1-SNAPSHOT</version>
 	<name>messaverde-tiendamuebles-servicesdswii</name>
 	<description>Demo project for Spring Boot</description>
