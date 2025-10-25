@@ -1,21 +1,13 @@
 package com.mesaverde.dto.response;
 
-import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Data
-@Builder
-public class DetalleVentaSimple {
-
-    private int id;
+public class DetalleVentaRequest {
     private int cantidad;
-    private String nombreProducto;
     private BigDecimal precioUnitario;
-
-    private BigDecimal subtotal;
+    private Long productoId;
     private Long ventaId;
-
-
 }
