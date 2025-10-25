@@ -1,6 +1,6 @@
-package com.mesaverde.RestApiCategory.repository;
+package com.mesaverde.repository;
 
-import com.mesaverde.RestApiCategory.modelo.Categoria;
+import com.mesaverde.modelo.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,3 +11,4 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
 
     List<Categoria> findByNombreContainingIgnoreCase(String nombre);
 }
+
