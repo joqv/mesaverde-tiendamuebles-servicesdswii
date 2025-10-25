@@ -1,6 +1,5 @@
 package com.mesaverde.service;
 
-import com.mesaverde.RestApiCategory.repository.CategoriaRepository;
 import com.mesaverde.entity.ProductoEntity;
 import com.mesaverde.repository.ProductoRepository;
 import lombok.AllArgsConstructor;

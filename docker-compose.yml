@@ -1,0 +1,33 @@
+services:
+  app:
+    build: .
+    container_name: api_tiendamuebles
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/db_dswii_tiendamuebles?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: rootpassword
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - net_tiendamuebles
+
+  db:
+    image: mysql:8.0
+    container_name: db_tiendamuebles
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: db_dswii_tiendamuebles
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db_dswii_tiendamuebles.sql:/docker-entrypoint-initdb.d/db_dswii_tiendamuebles.sql:ro
+    restart: always
+    networks:
+      - net_tiendamuebles
+
+volumes:
+  mysql_data:
+
+networks:
+  net_tiendamuebles:
+    external: true

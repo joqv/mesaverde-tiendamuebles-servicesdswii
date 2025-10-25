@@ -23,7 +23,7 @@ public class VentaResponse {
     private String nombreUsuario;
     private LocalDateTime fecha;
     private BigDecimal total;
-    private List<UserResponse> clientes;
+    //private List<UserResponse> clientes;
 
     private List<DetalleVentaSimple> detallesVentas;
 

@@ -47,13 +47,15 @@ public class VentaService {
                 ))
                 .collect(Collectors.toList());
 
+        System.out.println("clientes: " + clientes);
+
 
         VentaResponse response = VentaResponse.builder()
                     //.nombreCliente(venta.getCliente().getNombre())
                 .nombreUsuario(venta.getUsuario() != null ? venta.getUsuario().getUsername() : "sistema")
                 .fecha(venta.getFecha())
                     .total(venta.getTotal())
-                    .clientes(clientes)
+                    //.clientes(clientes)
                     .build();
 
         return response;
