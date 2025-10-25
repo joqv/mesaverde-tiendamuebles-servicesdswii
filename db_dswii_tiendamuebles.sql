@@ -96,11 +96,11 @@ INSERT INTO usuarios (username, password, cliente_id, role) VALUES
 ('sofia', 'pass654', 5, 'USER');
 
 INSERT INTO productos (nombre, precio, tipo, stock, descripcion, imagen, categoria_id) VALUES
-('Sofá 3 plazas', 1200.00, 'mueble', 10, 'Sofá cómodo de tela gris', 'sofa3.jpg', 1),
-('Mesa comedor madera', 850.00, 'mueble', 5, 'Mesa de roble para 6 personas', 'mesa_comedor.jpg', 2),
-('Silla ergonómica', 450.00, 'silla', 20, 'Silla de oficina con soporte lumbar', 'silla_ergonomica.jpg', 4),
-('Cama matrimonial', 1500.00, 'mueble', 7, 'Cama con base de madera y colchón incluido', 'cama.jpg', 3),
-('Banco de jardín', 300.00, 'mueble', 12, 'Banco de metal para exteriores', 'banco_jardin.jpg', 5);
+('Sofá 3 plazas', 1200.00, 'mueble', 100, 'Sofá cómodo de tela gris', 'sofa3.jpg', 1),
+('Mesa comedor madera', 850.00, 'mueble', 105, 'Mesa de roble para 6 personas', 'mesa_comedor.jpg', 2),
+('Silla ergonómica', 450.00, 'silla', 120, 'Silla de oficina con soporte lumbar', 'silla_ergonomica.jpg', 4),
+('Cama matrimonial', 1500.00, 'mueble', 107, 'Cama con base de madera y colchón incluido', 'cama.jpg', 3),
+('Banco de jardín', 300.00, 'mueble', 120, 'Banco de metal para exteriores', 'banco_jardin.jpg', 5);
 
 INSERT INTO ventas (usuario_id, cliente_id, total) VALUES
 (1, 1, 1650.00),

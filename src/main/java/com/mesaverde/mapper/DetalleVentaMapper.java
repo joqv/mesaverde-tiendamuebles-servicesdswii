@@ -9,5 +9,6 @@ import org.mapstruct.Mapping;
 public interface DetalleVentaMapper {
 
     @Mapping(target = "nombreProducto", source = "producto.nombre")
+    @Mapping(target = "ventaId", source = "venta.id")
     DetalleVentaSimple toDetallVentaSimple(DetalleVentaEntity entity);
 }
