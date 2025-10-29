@@ -5,6 +5,8 @@ import com.mesaverde.entity.VentaEntity;
 import com.mesaverde.mapper.VentaMapper;
 import com.mesaverde.repository.DetalleVentaRepository;
 import com.mesaverde.repository.VentaRepository;
+
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class VentaService {
 
     private final VentaRepository ventaRepository;
     private final DetalleVentaRepository detalleVentaRepository;
-    private final VentaMapper ventaMapper;
+    //private final VentaMapper ventaMapper;
 
     public List<VentaResponse> obtenerTodasLasVentas() {
 
@@ -38,9 +40,9 @@ public class VentaService {
                     entity.getId(), Collections.emptyList()
             );
 
-            VentaResponse response = ventaMapper.toVentaResponse(entity, detalles);
+          //  VentaResponse response = ventaMapper.toVentaResponse(entity, detalles);
 
-            ventaResponse.add(response);
+            ventaResponse.add(null);
         }
 
         return ventaResponse;
